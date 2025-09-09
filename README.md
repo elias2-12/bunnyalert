@@ -18,8 +18,8 @@ Una librería de alertas moderna y elegante diseñada especialmente para juegos 
 ### Opción 1: CDN (Recomendado)
 ```html
 <!-- Incluir en el <head> de tu página -->
-<script src="https://cdn.jsdelivr.net/gh/tuusuario/bunnyalert@main/bunnyalert.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tuusuario/bunnyalert@main/bunnyalert.min.css">
+<script src="https://cdn.jsdelivr.net/gh/elias2-12/bunnyalert@main/bunnyalert.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/elias2-12/bunnyalert@main/bunnyalert.min.css">
 ```
 
 ### Opción 2: Descarga directa
