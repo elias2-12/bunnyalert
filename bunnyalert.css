@@ -1,0 +1,357 @@
+ @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
+        
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Ubuntu', sans-serif;
+            font-size: 14px;
+            background: #1e3a8a;
+            background-image: 
+                radial-gradient(circle at 25% 25%, #3b82f6 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, #60a5fa 0%, transparent 50%);
+            min-height: 100vh;
+            color: white;
+        }
+
+        .demo-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .demo-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .demo-btn {
+            padding: 12px;
+            font-family: 'Ubuntu', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            background: #22c55e;
+            color: white;
+            border: 3px solid #16a34a;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.1s;
+        }
+
+        .demo-btn:hover {
+            background: #16a34a;
+            transform: translateY(-2px);
+        }
+
+        /* Estilos de BunnyAlert */
+        .bunny-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .bunny-alert {
+            background: #f3f4f6;
+            border: 4px solid #1f2937;
+            border-radius: 12px;
+            box-shadow: 
+                inset 2px 2px 0px #ffffff,
+                inset -2px -2px 0px #d1d5db,
+                4px 4px 0px rgba(0,0,0,0.3);
+            min-width: 320px;
+            max-width: 500px;
+            animation: bounceIn 0.4s ease;
+            position: relative;
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        .bunny-alert-header {
+            background: linear-gradient(180deg, #3b82f6 0%, #1e40af 100%);
+            color: white;
+            padding: 12px 16px;
+            border-bottom: 2px solid #1e40af;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .bunny-alert-close {
+            background: #ef4444;
+            border: 2px solid #dc2626;
+            border-radius: 4px;
+            color: white;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 16px;
+            line-height: 1;
+            font-weight: bold;
+        }
+
+        .bunny-alert-close:hover {
+            background: #dc2626;
+        }
+
+        .bunny-alert-content {
+            padding: 20px;
+            color: #1f2937;
+            text-align: left;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .bunny-alert-message {
+            margin: 8px 0;
+        }
+
+        .bunny-alert-buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+            justify-content: flex-end;
+        }
+
+        .bunny-btn {
+            padding: 10px 20px;
+            font-family: 'Ubuntu', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            border: 3px solid;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.1s;
+            min-width: 80px;
+        }
+
+        .bunny-btn-primary {
+            background: #22c55e;
+            color: white;
+            border-color: #16a34a;
+        }
+
+        .bunny-btn-primary:hover {
+            background: #16a34a;
+            transform: translateY(-1px);
+        }
+
+        .bunny-btn-secondary {
+            background: #6b7280;
+            color: white;
+            border-color: #4b5563;
+        }
+
+        .bunny-btn-secondary:hover {
+            background: #4b5563;
+            transform: translateY(-1px);
+        }
+
+        .bunny-btn-danger {
+            background: #ef4444;
+            color: white;
+            border-color: #dc2626;
+        }
+
+        .bunny-btn-danger:hover {
+            background: #dc2626;
+            transform: translateY(-1px);
+        }
+
+        /* Estilos específicos por tipo */
+        .bunny-alert-furni .bunny-alert-header {
+            background: linear-gradient(180deg, #f59e0b 0%, #d97706 100%);
+            border-bottom-color: #d97706;
+        }
+
+        .bunny-alert-trade .bunny-alert-header {
+            background: linear-gradient(180deg, #8b5cf6 0%, #7c3aed 100%);
+            border-bottom-color: #7c3aed;
+        }
+
+        .bunny-alert-mod .bunny-alert-header {
+            background: linear-gradient(180deg, #ef4444 0%, #dc2626 100%);
+            border-bottom-color: #dc2626;
+        }
+
+        .bunny-alert-friend .bunny-alert-header {
+            background: linear-gradient(180deg, #10b981 0%, #059669 100%);
+            border-bottom-color: #059669;
+        }
+
+        /* Contenedor de imagen para alertas especiales */
+        .bunny-alert-with-image {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .bunny-alert-image {
+            flex-shrink: 0;
+            width: 80px;
+            height: 80px;
+            border: 3px solid #d1d5db;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #e5e7eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: #6b7280;
+            text-align: center;
+        }
+
+        .bunny-alert-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .bunny-alert-image-placeholder {
+            padding: 8px;
+            font-size: 10px;
+            line-height: 1.2;
+        }
+
+        .bunny-alert-text-content {
+            flex: 1;
+        }
+
+        /* Container para toasts */
+        .bunny-toast-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 20000;
+            pointer-events: none;
+        }
+
+        /* Toast individual - cuadrito pequeño */
+        .bunny-toast {
+            background: #2a2a2a;
+            border: 2px solid #444;
+            border-radius: 6px;
+            width: 200px;
+            height: 50px;
+            margin-bottom: 8px;
+            font-family: 'Ubuntu', sans-serif;
+            font-size: 11px;
+            pointer-events: auto;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            display: flex;
+            align-items: center;
+            padding: 0 12px;
+            gap: 10px;
+        }
+
+        .bunny-toast.show {
+            opacity: 1;
+        }
+
+        .bunny-toast.hide {
+            opacity: 0;
+        }
+
+        /* Icono del toast */
+        .bunny-toast-icon {
+            width: 16px;
+            height: 16px;
+            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .bunny-toast-text {
+            flex: 1;
+            color: #fff;
+            font-weight: 500;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Tipos de toast */
+        .bunny-toast-success .bunny-toast-icon {
+            background: #22c55e;
+            color: white;
+        }
+
+        .bunny-toast-error .bunny-toast-icon {
+            background: #ef4444;
+            color: white;
+        }
+
+        .bunny-toast-info .bunny-toast-icon {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .bunny-toast-warning .bunny-toast-icon {
+            background: #f59e0b;
+            color: white;
+        }
+
+        /* Animaciones */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0.3) rotate(6deg); opacity: 0; }
+            50% { transform: scale(1.05) rotate(-3deg); }
+            70% { transform: scale(0.9) rotate(1deg); }
+            100% { transform: scale(1) rotate(0deg); opacity: 1; }
+        }
+
+        /* Items específicos */
+        .furni-item {
+            display: inline-block;
+            background: #fbbf24;
+            padding: 6px 12px;
+            margin: 4px;
+            border: 2px solid #f59e0b;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .credits-amount {
+            color: #22c55e;
+            font-weight: bold;
+        }
+
+        .hc-badge {
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #92400e;
+            padding: 4px 12px;
+            border: 2px solid #d97706;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
